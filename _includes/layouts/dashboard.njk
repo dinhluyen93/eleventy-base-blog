@@ -10,8 +10,8 @@
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 
-    <link href="{{ '/assets/plugins/global/plugins.bundle.css' | url }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ '/assets/css/style.bundle.css' | url }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ '/assets/plugins/global/plugins.bundle.css' }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ '/assets/css/style.bundle.css' }}" rel="stylesheet" type="text/css"/>
     {%- css %}{% include "public/assets/css/custom.css" %}{% endcss %}
     <style>{% getBundle "css" %}</style>
 
@@ -69,10 +69,10 @@
     </div>
 
     <script>
-        var hostUrl = "{{ '/assets/' | url }}";
+        var hostUrl = "{{ '/assets/' }}";
     </script>
-    <script src="{{ '/assets/plugins/global/plugins.bundle.js' | url }}"></script>
-    <script src="{{ '/assets/js/scripts.bundle.js' | url }}"></script>
+    <script src="{{ '/assets/plugins/global/plugins.bundle.js' }}"></script>
+    <script src="{{ '/assets/js/scripts.bundle.js' }}"></script>
 
 
     {% set scripts = {
@@ -87,7 +87,7 @@
 
     {% if scripts[page.fileSlug] %}
         {% for script in scripts[page.fileSlug] %}
-            <script src="{{ script | url }}"></script>
+            <script src="{{ script }}"></script>
         {% endfor %}
     {% endif %}
 </body>

@@ -11,9 +11,10 @@
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="{{ '/assets/plugins/global/plugins.bundle.css' | url }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ '/assets/css/style.bundle.css' | url }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ '/assets/css/custom.css' | url }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ '/assets/plugins/global/plugins.bundle.css' }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ '/assets/css/style.bundle.css' }}" rel="stylesheet" type="text/css"/>
+    {%- css %}{% include "public/assets/css/custom.css" %}{% endcss %}
+    <style>{% getBundle "css" %}</style>
 
     <script>
         if (window.top != window.self) {
@@ -50,10 +51,10 @@
         <i class="ki-duotone ki-arrow-up"><span class="path1"></span><span class="path2"></span></i>
     </div>
     <script>
-        var hostUrl = "{{ '/assets/' | url }}";
+        var hostUrl = "{{ '/assets/' }}";
     </script>
-    <script src="{{ '/assets/plugins/global/plugins.bundle.js' | url }}"></script>
-    <script src="{{ '/assets/js/scripts.bundle.js' | url }}"></script>
+    <script src="{{ '/assets/plugins/global/plugins.bundle.js' }}"></script>
+    <script src="{{ '/assets/js/scripts.bundle.js' }}"></script>
 
 
     {% set scripts = {
@@ -68,7 +69,7 @@
 
     {% if scripts[page.fileSlug] %}
         {% for script in scripts[page.fileSlug] %}
-            <script src="{{ script | url }}"></script>
+            <script src="{{ script }}"></script>
         {% endfor %}
     {% endif %}
 </body>

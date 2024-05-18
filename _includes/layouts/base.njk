@@ -10,38 +10,38 @@
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
+		{#- Bỏ dấu comment này nếu bạn muốn mọi người biết bạn đã sử dụng Eleventy để xây dựng trang web của mình!  #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 
 		{#-
-		CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. You can add to them using `{% css %}`
-		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
-		4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
+		CSS bundles được cung cấp thông qua plugin `eleventy-plugin-bundle`:
+		1. Bạn có thể thêm vào chúng bằng cách sử dụng `{% css %}`
+		2. Bạn có thể lấy chúng bằng cách sử dụng `{% getBundle "css" %}` hoặc `{% getBundleFileUrl "css" %}`
+		3. Bạn có thể làm điều tương tự với JS: {% js %}{% endjs %} và <script>{% getBundle "js" %}</script>
+		4. Tìm hiểu thêm: https://github.com/11ty/eleventy-plugin-bundle
 		#}
 
-		{#- Add an arbitrary string to the bundle #}
+		{#- Thêm một chuỗi tùy ý vào bundle #}
 		{%- css %}* { box-sizing: border-box; }{% endcss %}
-		{#- Add the contents of a file to the bundle #}
+		{#- Thêm nội dung từ một tệp vào bundle #}
 		{%- css %}{% include "public/css/index.css" %}{% endcss %}
-		{#- Or add from node_modules #}
+		{#- Hoặc thêm từ node_modules #}
 		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
 
-		{#- Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
+		{#- Hiển thị bundle CSS bằng CSS được nhúng (cho hiệu suất trang nhanh nhất trong môi trường sản xuất) #}
 		<style>{% getBundle "css" %}</style>
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
+		{#- Hiển thị bundle CSS bằng một tệp riêng biệt, nếu bạn không thể thiết lập chỉ thị CSP style-src: 'unsafe-inline' #}
 		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
 	</head>
 	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
+		<a href="#skip" class="visually-hidden">Chuyển đến nội dung chính</a>
 
 		<header>
 			<a href="/" class="home-link">{{ metadata.title }}</a>
 
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+			{#- Đọc thêm về `eleventy-navigation` tại https://www.11ty.dev/docs/plugins/navigation/ #}
 			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<h2 class="visually-hidden">Menu điều hướng cấp cao</h2>
 				<ul class="nav">
 				{%- for entry in collections.all | eleventyNavigation %}
 					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
@@ -56,6 +56,6 @@
 
 		<footer></footer>
 
-		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+		<!-- Trang này `{{ page.url | htmlBaseUrl }}` được xây dựng vào {% currentBuildDate %} -->
 	</body>
 </html>
